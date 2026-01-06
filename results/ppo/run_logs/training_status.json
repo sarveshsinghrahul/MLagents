@@ -1,0 +1,29 @@
+{
+    "MoveScript": {
+        "checkpoints": [
+            {
+                "steps": 3328,
+                "file_path": "results\\ppo\\MoveScript\\MoveScript-3328.onnx",
+                "reward": null,
+                "creation_time": 1767715514.5362327,
+                "auxillary_file_paths": [
+                    "results\\ppo\\MoveScript\\MoveScript-3328.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 3328,
+            "file_path": "results\\ppo\\MoveScript.onnx",
+            "reward": null,
+            "creation_time": 1767715514.5362327,
+            "auxillary_file_paths": [
+                "results\\ppo\\MoveScript\\MoveScript-3328.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.1.0",
+        "torch_version": "2.2.2+cu121"
+    }
+}

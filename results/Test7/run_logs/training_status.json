@@ -1,0 +1,29 @@
+{
+    "MoveScript": {
+        "checkpoints": [
+            {
+                "steps": 1329,
+                "file_path": "results\\Test7\\MoveScript\\MoveScript-1329.onnx",
+                "reward": -0.10000000149011612,
+                "creation_time": 1767722260.9711995,
+                "auxillary_file_paths": [
+                    "results\\Test7\\MoveScript\\MoveScript-1329.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1329,
+            "file_path": "results\\Test7\\MoveScript.onnx",
+            "reward": -0.10000000149011612,
+            "creation_time": 1767722260.9711995,
+            "auxillary_file_paths": [
+                "results\\Test7\\MoveScript\\MoveScript-1329.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.1.0",
+        "torch_version": "2.2.2+cu121"
+    }
+}
