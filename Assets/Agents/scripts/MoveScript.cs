@@ -12,32 +12,37 @@ public class MoveScript : Agent
 
     private Vector3 _startPosition;
     private Vector3 _targetStartPosition;
-
-    // 1. Add a variable to track the distance from the last frame
-    private float _previousDistance;
     private Rigidbody _rb;
 
     public override void Initialize()
     {
-        base.Initialize(); // Good practice to call base
-        _rb = GetComponent<Rigidbody>(); // 2. Get the Rigidbody
+        base.Initialize();
+        _rb = GetComponent<Rigidbody>();
         _startPosition = transform.localPosition;
         _targetStartPosition = targetTransform.localPosition;
     }
 
     public override void OnEpisodeBegin()
     {
-        transform.localPosition = _startPosition;
+        // 1. Calculate a random Z position between -6 and 4
+        float randomZ = Random.Range(-6f, 4f);
+
+        // 2. Create the new vector using the original X/Y, but the new Random Z
+        transform.localPosition = new Vector3(_startPosition.x, _startPosition.y, randomZ);
+
+        // Reset the target (keep it static or randomize it separately if you want)
         targetTransform.localPosition = _targetStartPosition;
 
-        // 2. Reset the previous distance at the start of the episode
-        _previousDistance = Vector3.Distance(transform.position, targetTransform.position);
+        // Reset Physics (Using the Unity 6 fix we discussed)
+        _rb.linearVelocity = Vector3.zero;
+        _rb.angularVelocity = Vector3.zero;
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        sensor.AddObservation(transform.position);
-        sensor.AddObservation(targetTransform.position);
+        // Note: For complex mazes, RayPerceptionSensor3D is better than positions
+        sensor.AddObservation(transform.localPosition);
+        sensor.AddObservation(targetTransform.localPosition);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -45,69 +50,50 @@ public class MoveScript : Agent
         float moveX = actions.ContinuousActions[0];
         float moveZ = actions.ContinuousActions[1];
 
-        float moveSpeed = 3f;
-        // 3. Move using Physics instead of Transform
+        float moveSpeed = 5f; // Increased slightly for snappier movement
         Vector3 movement = new Vector3(moveX, 0, moveZ) * moveSpeed * Time.deltaTime;
         _rb.MovePosition(transform.position + movement);
 
-        // --- NEW CODE START ---
-
-        // Calculate current distance
-        float distanceToTarget = Vector3.Distance(transform.position, targetTransform.position);
-
-        // Calculate how much we improved (Previous - Current)
-        // If result is positive, we got closer. If negative, we moved away.
-        float distanceDelta = _previousDistance - distanceToTarget;
-
-        // Add a reward based on that improvement. 
-        // We implicitly punish moving away and reward moving closer.
-        AddReward(distanceDelta);
-
-        // Update previous distance for the next step
-        _previousDistance = distanceToTarget;
-
-        // --- NEW CODE END ---
-
-        // Existing time penalty
-        AddReward(-0.01f);
+        // --- 1. THE EXISTENTIAL CRISIS PENALTY ---
+        // We punish the agent every single step based on total max steps.
+        // If MaxSteps is 5000, this is -0.0002 per frame.
+        // This forces the agent to solve the maze FAST.
+        AddReward(-1f / MaxStep);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
         var continuousActionsOut = actionsOut.ContinuousActions;
-
-        // Reset to 0
         continuousActionsOut[0] = 0;
         continuousActionsOut[1] = 0;
 
-        // Use Keyboard.current to check keys directly
         if (Keyboard.current != null)
         {
-            if (Keyboard.current.dKey.isPressed) continuousActionsOut[0] = 1; // Right
-            if (Keyboard.current.aKey.isPressed) continuousActionsOut[0] = -1; // Left
-
-            if (Keyboard.current.wKey.isPressed) continuousActionsOut[1] = 1; // Up
-            if (Keyboard.current.sKey.isPressed) continuousActionsOut[1] = -1; // Down
+            if (Keyboard.current.dKey.isPressed) continuousActionsOut[0] = 1;
+            if (Keyboard.current.aKey.isPressed) continuousActionsOut[0] = -1;
+            if (Keyboard.current.wKey.isPressed) continuousActionsOut[1] = 1;
+            if (Keyboard.current.sKey.isPressed) continuousActionsOut[1] = -1;
         }
     }
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.TryGetComponent<goal>(out goal goal))
+        // --- 2. THE GOAL REWARD ---
+        if (collision.gameObject.TryGetComponent<goal>(out goal goalScript))
         {
-            SetReward(10.0f);
+            SetReward(1.0f); // Big payout
             EndEpisode();
         }
-        else if (collision.gameObject.TryGetComponent<walls>(out walls walls))
+
+        // --- 3. THE WALL SLAP (Modified) ---
+        // I combined your 'walls' and 'barricade' logic here.
+        // Crucial: Do NOT EndEpisode() on wall hit for a maze. 
+        // Just give a small slap so it prefers clear paths.
+        else if (collision.gameObject.TryGetComponent<walls>(out walls wallScript) ||
+                 collision.gameObject.TryGetComponent<barricade>(out barricade barricadeScript))
         {
-            SetReward(-2.0f);
-            EndEpisode();
-        }
-        else if (collision.gameObject.TryGetComponent<barricade>(out barricade barricade))
-        {
-            SetReward(-0.2f);
-            // If you want it to bounce off, Physics does that automatically now.
-            // If you want it to RESET on barricade hit, add EndEpisode() here.
+            AddReward(-0.005f); // Tiny penalty. 
+            // Do NOT call EndEpisode(); let it slide along the wall to find the exit.
         }
     }
 }

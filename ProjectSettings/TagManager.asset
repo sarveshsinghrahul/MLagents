@@ -6,6 +6,7 @@ TagManager:
   tags:
   - walls
   - barricades
+  - goal
   layers:
   - Default
   - TransparentFX
