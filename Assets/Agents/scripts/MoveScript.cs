@@ -24,16 +24,21 @@ public class MoveScript : Agent
 
     public override void OnEpisodeBegin()
     {
-        // 1. Calculate a random Z position between -6 and 4
-        float randomZ = Random.Range(-6f, 4f);
+        // --- 1. Randomize AGENT Position ---
+        // (Keep your existing logic for the agent)
+        float agentRandomZ = Random.Range(-6f, 4f);
+        transform.localPosition = new Vector3(_startPosition.x, _startPosition.y, agentRandomZ);
 
-        // 2. Create the new vector using the original X/Y, but the new Random Z
-        transform.localPosition = new Vector3(_startPosition.x, _startPosition.y, randomZ);
+        // --- 2. Randomize TARGET Position ---
+        // X axis: Random between -17 and 0
+        // Z axis: Random between -3 and 0
+        float targetRandomX = Random.Range(-17f, 0f);
+        float targetRandomZ = Random.Range(-3f, 0f);
 
-        // Reset the target (keep it static or randomize it separately if you want)
-        targetTransform.localPosition = _targetStartPosition;
+        // Apply new position (keeping the original Y height to prevent sinking/floating)
+        targetTransform.localPosition = new Vector3(targetRandomX, _targetStartPosition.y, targetRandomZ);
 
-        // Reset Physics (Using the Unity 6 fix we discussed)
+        // --- 3. Reset Physics ---
         _rb.linearVelocity = Vector3.zero;
         _rb.angularVelocity = Vector3.zero;
     }
@@ -81,7 +86,7 @@ public class MoveScript : Agent
         // --- 2. THE GOAL REWARD ---
         if (collision.gameObject.TryGetComponent<goal>(out goal goalScript))
         {
-            SetReward(1.0f); // Big payout
+            SetReward(10.0f); // Big payout
             EndEpisode();
         }
 
