@@ -1,104 +1,144 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
-using UnityEngine;
-using UnityEngine.InputSystem;
+using System.Collections;
+using UnityEngine.InputSystem; // <--- FIX 2: ADD THIS
 
 public class MoveScript : Agent
 {
-    [SerializeField] private Transform targetTransform;
+    [Header("Dungeon Setup")]
+    public Transform[] spawnPoints;
+    public GameObject[] allGoals;
 
-    private Vector3 _startPosition;
-    private Vector3 _targetStartPosition;
+    private int _currentRoomIndex = 0;
     private Rigidbody _rb;
+    private bool _isTransitioning = false;
 
     public override void Initialize()
     {
         base.Initialize();
         _rb = GetComponent<Rigidbody>();
-        _startPosition = transform.localPosition;
-        _targetStartPosition = targetTransform.localPosition;
+        _currentRoomIndex = 0;
     }
 
     public override void OnEpisodeBegin()
     {
-        // --- 1. Randomize AGENT Position ---
-        // (Keep your existing logic for the agent)
-        float agentRandomZ = Random.Range(-6f, 4f);
-        transform.localPosition = new Vector3(_startPosition.x, _startPosition.y, agentRandomZ);
+        // 1. DO NOT reset _currentRoomIndex here. 
+        // We want to keep our progress if we just ran out of time.
 
-        // --- 2. Randomize TARGET Position ---
-        // X axis: Random between -17 and 0
-        // Z axis: Random between -3 and 0
-        float targetRandomX = Random.Range(-17f, 0f);
-        float targetRandomZ = Random.Range(-3f, 0f);
+        _isTransitioning = false;
+        _rb.isKinematic = false;
 
-        // Apply new position (keeping the original Y height to prevent sinking/floating)
-        targetTransform.localPosition = new Vector3(targetRandomX, _targetStartPosition.y, targetRandomZ);
+        // 2. Spawn at the CURRENT room's spawn point
+        if (spawnPoints.Length > _currentRoomIndex)
+        {
+            Transform currentSpawn = spawnPoints[_currentRoomIndex];
+            transform.position = currentSpawn.position;
+            transform.rotation = currentSpawn.rotation;
+        }
 
-        // --- 3. Reset Physics ---
+        // 3. Reset Physics
         _rb.linearVelocity = Vector3.zero;
         _rb.angularVelocity = Vector3.zero;
+
+        // 4. Ensure goals are active so we can try again
+        foreach (GameObject g in allGoals) { if (g) g.SetActive(true); }
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        // Note: For complex mazes, RayPerceptionSensor3D is better than positions
-        sensor.AddObservation(transform.localPosition);
-        sensor.AddObservation(targetTransform.localPosition);
+        sensor.AddObservation(_currentRoomIndex);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
     {
+        if (_isTransitioning) return;
+
         float moveX = actions.ContinuousActions[0];
         float moveZ = actions.ContinuousActions[1];
+        float moveSpeed = 6f;
 
-        float moveSpeed = 5f; // Increased slightly for snappier movement
         Vector3 movement = new Vector3(moveX, 0, moveZ) * moveSpeed * Time.deltaTime;
         _rb.MovePosition(transform.position + movement);
 
-        // --- 1. THE EXISTENTIAL CRISIS PENALTY ---
-        // We punish the agent every single step based on total max steps.
-        // If MaxSteps is 5000, this is -0.0002 per frame.
-        // This forces the agent to solve the maze FAST.
         AddReward(-1f / MaxStep);
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (_isTransitioning) return;
+
+        if (other.CompareTag("goal") || other.CompareTag("Checkpoint"))
+        {
+            other.gameObject.SetActive(false);
+            AddReward(1.0f);
+
+            int nextRoom = _currentRoomIndex + 1;
+
+            if (nextRoom >= spawnPoints.Length)
+            {
+                AddReward(5.0f);
+                _currentRoomIndex = 0; // Reset for next episode
+                EndEpisode();
+            }
+            else
+            {
+                StartCoroutine(MoveAgentThroughDoor(spawnPoints[nextRoom]));
+            }
+        }
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (_isTransitioning) return;
+
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            AddReward(-0.02f);
+            Transform retryPoint = spawnPoints[_currentRoomIndex];
+            transform.position = retryPoint.position;
+            transform.rotation = retryPoint.rotation;
+
+            // --- FIX 1: USE LINEARVELOCITY HERE TOO ---
+            _rb.linearVelocity = Vector3.zero;
+        }
+    }
+
+    IEnumerator MoveAgentThroughDoor(Transform targetDestination)
+    {
+        _isTransitioning = true;
+        _rb.isKinematic = true;
+
+        float duration = 1.5f;
+        float elapsedTime = 0f;
+        Vector3 startPos = transform.position;
+
+        while (elapsedTime < duration)
+        {
+            transform.position = Vector3.Lerp(startPos, targetDestination.position, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.position = targetDestination.position;
+        _currentRoomIndex++;
+        _rb.isKinematic = false;
+        _isTransitioning = false;
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
         var continuousActionsOut = actionsOut.ContinuousActions;
-        continuousActionsOut[0] = 0;
-        continuousActionsOut[1] = 0;
+        continuousActionsOut[0] = 0; continuousActionsOut[1] = 0;
 
+        // This 'Keyboard' class now works because we added 'using UnityEngine.InputSystem;'
         if (Keyboard.current != null)
         {
             if (Keyboard.current.dKey.isPressed) continuousActionsOut[0] = 1;
             if (Keyboard.current.aKey.isPressed) continuousActionsOut[0] = -1;
             if (Keyboard.current.wKey.isPressed) continuousActionsOut[1] = 1;
             if (Keyboard.current.sKey.isPressed) continuousActionsOut[1] = -1;
-        }
-    }
-
-    public void OnCollisionEnter(Collision collision)
-    {
-        // --- 2. THE GOAL REWARD ---
-        if (collision.gameObject.TryGetComponent<goal>(out goal goalScript))
-        {
-            SetReward(10.0f); // Big payout
-            EndEpisode();
-        }
-
-        // --- 3. THE WALL SLAP (Modified) ---
-        // I combined your 'walls' and 'barricade' logic here.
-        // Crucial: Do NOT EndEpisode() on wall hit for a maze. 
-        // Just give a small slap so it prefers clear paths.
-        else if (collision.gameObject.TryGetComponent<walls>(out walls wallScript) ||
-                 collision.gameObject.TryGetComponent<barricade>(out barricade barricadeScript))
-        {
-            AddReward(-0.005f); // Tiny penalty. 
-            // Do NOT call EndEpisode(); let it slide along the wall to find the exit.
         }
     }
 }
