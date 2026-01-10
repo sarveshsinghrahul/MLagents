@@ -1,0 +1,38 @@
+{
+    "MoveScript": {
+        "checkpoints": [
+            {
+                "steps": 499968,
+                "file_path": "results\\DungeonRun_03\\MoveScript\\MoveScript-499968.onnx",
+                "reward": -1.0000000707805157,
+                "creation_time": 1768057883.592522,
+                "auxillary_file_paths": [
+                    "results\\DungeonRun_03\\MoveScript\\MoveScript-499968.pt"
+                ]
+            },
+            {
+                "steps": 530400,
+                "file_path": "results\\DungeonRun_03\\MoveScript\\MoveScript-530400.onnx",
+                "reward": -1.0000000707805157,
+                "creation_time": 1768058244.73717,
+                "auxillary_file_paths": [
+                    "results\\DungeonRun_03\\MoveScript\\MoveScript-530400.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 530400,
+            "file_path": "results\\DungeonRun_03\\MoveScript.onnx",
+            "reward": -1.0000000707805157,
+            "creation_time": 1768058244.73717,
+            "auxillary_file_paths": [
+                "results\\DungeonRun_03\\MoveScript\\MoveScript-530400.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.1.0",
+        "torch_version": "2.2.2+cu121"
+    }
+}
