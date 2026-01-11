@@ -146,9 +146,19 @@ public class MoveScript : Agent
     {
         if (timeBoards != null && _currentRoomIndex < timeBoards.Length && timeBoards[_currentRoomIndex] != null)
         {
-            // Use our custom variable instead of StepCount
+            // Use our custom variable
             System.TimeSpan t = System.TimeSpan.FromSeconds(_totalRunTime);
-            timeBoards[_currentRoomIndex].text = string.Format("Total Run Time: {0:D2}:{1:D2}", t.Minutes, t.Seconds);
+
+            // FIX: If we have more than 0 hours, show HH:MM:SS
+            // If less than an hour, keep showing MM:SS
+            if (t.TotalHours >= 1)
+            {
+                timeBoards[_currentRoomIndex].text = string.Format("Total Run Time: {0:D2}:{1:D2}:{2:D2}", t.Hours, t.Minutes, t.Seconds);
+            }
+            else
+            {
+                timeBoards[_currentRoomIndex].text = string.Format("Total Run Time: {0:D2}:{1:D2}", t.Minutes, t.Seconds);
+            }
         }
     }
 
@@ -252,7 +262,7 @@ public class MoveScript : Agent
     {
         if (_isTransitioning) return;
 
-        if (collision.gameObject.CompareTag("Wall"))
+        if (collision.gameObject.CompareTag("walls"))
         {
             AddReward(-0.02f);
             ResetAgentAndGoalInRoom(_currentRoomIndex);

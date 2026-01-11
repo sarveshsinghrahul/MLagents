@@ -1036,7 +1036,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2721477734900869097, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_BehaviorType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2721477734900869097, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_InferenceDevice
