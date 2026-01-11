@@ -294,6 +294,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshPro
+--- !u!1 &400625179 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7101103410021960731, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+  m_PrefabInstance: {fileID: 1521063491}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,9 +762,21 @@ PrefabInstance:
       propertyPath: m_TagString
       value: goal
       objectReference: {fileID: 0}
+    - target: {fileID: 7101103410021960731, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: m_Name
+      value: Room2_Lights
+      objectReference: {fileID: 0}
     - target: {fileID: 7137314587055996428, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_LocalPosition.z
       value: -6.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199055574063674296, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 7470553745807454563, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7921210499053322509, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_Name
@@ -768,6 +785,14 @@ PrefabInstance:
     - target: {fileID: 7996472734494904370, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_Name
       value: w2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073173121702933211, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380424594084392960, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9082713929161031790, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_Name
@@ -859,6 +884,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshPro
+--- !u!1 &1595124166 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7101103410021960731, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+  m_PrefabInstance: {fileID: 8619878320057472609}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1797615063 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7054679373503822558, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
@@ -924,6 +954,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 143656930153021621, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 240229424965202200, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_Name
       value: ENV
@@ -1184,6 +1218,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 3.8
       objectReference: {fileID: 0}
+    - target: {fileID: 7470553745807454563, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7738494888556415001, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.722409
@@ -1219,6 +1257,10 @@ PrefabInstance:
     - target: {fileID: 8073173121702933211, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_LocalPosition.y
       value: 3.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380424594084392960, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9105988202995243445, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1296,6 +1338,18 @@ PrefabInstance:
       propertyPath: 'spawnPoints.Array.data[1]'
       value: 
       objectReference: {fileID: 266892326}
+    - target: {fileID: 9160657965902534656, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: roomLightParents.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9160657965902534656, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: 'roomLightParents.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1595124166}
+    - target: {fileID: 9160657965902534656, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: 'roomLightParents.Array.data[1]'
+      value: 
+      objectReference: {fileID: 400625179}
     - target: {fileID: 9176949697473658029, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_Name
       value: l1
