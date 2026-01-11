@@ -314,11 +314,30 @@ public class MoveScript : Agent
 
     public override void CollectObservations(VectorSensor sensor)
     {
+        // 1. Room Index
         sensor.AddObservation(_currentRoomIndex);
+
+        // 2. Facing Direction (3 values)
         sensor.AddObservation(transform.forward);
+
+        // 3. Velocity (2 values)
         sensor.AddObservation(_rb.linearVelocity.x);
         sensor.AddObservation(_rb.linearVelocity.z);
+
+        // 4. Wins (1 value)
         sensor.AddObservation(requiredWins - _currentWins);
+
+        // --- NEW: THE COMPASS (3 values) ---
+        // This tells the agent "The goal is roughly over there"
+        if (allGoals != null && _currentRoomIndex < allGoals.Length && allGoals[_currentRoomIndex] != null)
+        {
+            Vector3 directionToGoal = (allGoals[_currentRoomIndex].transform.position - transform.position).normalized;
+            sensor.AddObservation(directionToGoal);
+        }
+        else
+        {
+            sensor.AddObservation(Vector3.zero); // Safety check
+        }
     }
 
     public override void OnActionReceived(ActionBuffers actions)

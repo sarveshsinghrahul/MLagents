@@ -715,6 +715,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -1.118
       objectReference: {fileID: 0}
+    - target: {fileID: 3272487244400172121, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: m_TagString
+      value: walls
+      objectReference: {fileID: 0}
+    - target: {fileID: 3368709541001978572, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3402564700865958379, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_Name
       value: spawn3
@@ -803,6 +811,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -32.8
       objectReference: {fileID: 0}
+    - target: {fileID: 6803551146989633185, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: fc8f5449e3ea26a47b0da39bf1169ad7, type: 2}
     - target: {fileID: 6841454049751258070, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_RaysPerDirection
       value: 25
@@ -1099,6 +1111,10 @@ PrefabInstance:
     - target: {fileID: 3117561900544745577, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_LocalPosition.z
       value: -1.118
+      objectReference: {fileID: 0}
+    - target: {fileID: 3272487244400172121, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: m_TagString
+      value: walls
       objectReference: {fileID: 0}
     - target: {fileID: 3515508278617919328, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_LocalScale.z
@@ -1525,6 +1541,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2721477734900869097, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2721477734900869097, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_BrainParameters.NumStackedVectorObservations
       value: 3
       objectReference: {fileID: 0}
@@ -1658,15 +1678,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6841454049751258070, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_RayLength
-      value: 66
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6841454049751258070, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6841454049751258070, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_RaysPerDirection
-      value: 25
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6841454049751258070, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_SphereCastRadius
-      value: 1.16
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6841454049751258070, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_ObservationStacks
