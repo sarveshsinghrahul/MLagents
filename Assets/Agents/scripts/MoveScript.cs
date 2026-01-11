@@ -17,7 +17,8 @@ public class MoveScript : Agent
     public Transform[] roomDoors;
 
     [Header("UI Setup")]
-    public TextMeshPro[] scoreBoards;
+    public TextMeshPro[] scoreBoards;       // Wins: "Score 3/10"
+    public TextMeshPro[] timeBoards;        // <--- NEW: Array for Time Boards in every room
 
     [Header("Camera Setup")]
     public DungeonCamera cameraController;
@@ -63,7 +64,8 @@ public class MoveScript : Agent
         _rb.isKinematic = false;
         _currentWins = 0;
 
-        UpdateScoreBoard(); // Initial update
+        UpdateScoreBoard();
+        UpdateGlobalTimer(); // Reset timer text immediately
 
         ResetAgentAndGoalInRoom(_currentRoomIndex);
 
@@ -79,13 +81,26 @@ public class MoveScript : Agent
         }
     }
 
-    // --- NEW: UPDATE TIMER EVERY PHYSICS STEP ---
     public void FixedUpdate()
     {
-        // Only update if we are in the middle of an episode
         if (!_isTransitioning && MaxStep > 0)
         {
             UpdateScoreBoard();
+            UpdateGlobalTimer();
+        }
+    }
+
+    // --- UPDATED LOGIC ---
+    private void UpdateGlobalTimer()
+    {
+        // specific check: Does the array exist, and is there a board for THIS room?
+        if (timeBoards != null && _currentRoomIndex < timeBoards.Length && timeBoards[_currentRoomIndex] != null)
+        {
+            float totalSeconds = StepCount * Time.fixedDeltaTime;
+            System.TimeSpan t = System.TimeSpan.FromSeconds(totalSeconds);
+
+            // Update the text on the wall in the CURRENT room
+            timeBoards[_currentRoomIndex].text = string.Format("Total Run Time: {0:D2}:{1:D2}", t.Minutes, t.Seconds);
         }
     }
 
@@ -93,31 +108,20 @@ public class MoveScript : Agent
     {
         if (scoreBoards != null && _currentRoomIndex < scoreBoards.Length && scoreBoards[_currentRoomIndex] != null)
         {
-            // 1. Calculate Time
             float stepsRemaining = MaxStep - StepCount;
             float secondsRemaining = stepsRemaining * Time.fixedDeltaTime;
             if (secondsRemaining < 0) secondsRemaining = 0;
 
-            // 2. New Text Format
-            // "\n" creates a new line so it looks cleaner
-            scoreBoards[_currentRoomIndex].text = 
+            scoreBoards[_currentRoomIndex].text =
                 $"To Open the Gate:\nScore {_currentWins}/{requiredWins} | Time Remaining: {secondsRemaining:F0}s";
 
-            // 3. Color Logic (Same as before)
-            if (secondsRemaining <= 10f) 
-            {
-                scoreBoards[_currentRoomIndex].color = Color.red; 
-            }
-            else if (_currentWins >= requiredWins) 
-            {
-                scoreBoards[_currentRoomIndex].color = Color.green; 
-            }
-            else 
-            {
-                scoreBoards[_currentRoomIndex].color = Color.white; 
-            }
+            if (secondsRemaining <= 10f) scoreBoards[_currentRoomIndex].color = Color.red;
+            else if (_currentWins >= requiredWins) scoreBoards[_currentRoomIndex].color = Color.green;
+            else scoreBoards[_currentRoomIndex].color = Color.white;
         }
     }
+
+    // ... (Paste the rest: ResetAgentAndGoalInRoom, OnTriggerEnter, OnCollisionEnter, etc. below) ...
 
     private void ResetAgentAndGoalInRoom(int roomIdx)
     {
@@ -125,10 +129,8 @@ public class MoveScript : Agent
         {
             transform.position = GetRandomPosAt(roomIdx);
             transform.rotation = Quaternion.Euler(0, 90f, 0);
-            _rb.linearVelocity = Vector3.zero;
-            _rb.angularVelocity = Vector3.zero;
+            _rb.linearVelocity = Vector3.zero; _rb.angularVelocity = Vector3.zero;
         }
-
         if (allGoals.Length > roomIdx && allGoals[roomIdx] != null)
         {
             allGoals[roomIdx].SetActive(true);
@@ -138,63 +140,6 @@ public class MoveScript : Agent
         }
     }
 
-    public void OnTriggerEnter(Collider other)
-    {
-        if (_isTransitioning) return;
-
-        if (other.CompareTag("goal") || other.CompareTag("Checkpoint"))
-        {
-            _currentWins++;
-            // UpdateScoreBoard will happen automatically next frame in FixedUpdate, 
-            // but we can call it here for instant feedback if we want.
-            UpdateScoreBoard();
-
-            if (_currentWins >= requiredWins)
-            {
-                other.gameObject.SetActive(false);
-                AddReward(5.0f);
-
-                int nextRoom = _currentRoomIndex + 1;
-                if (nextRoom >= spawnPoints.Length)
-                {
-                    AddReward(10.0f);
-                    _currentRoomIndex = 0;
-                    EndEpisode();
-                }
-                else
-                {
-                    _currentWins = 0;
-                    Transform doorToOpen = null;
-                    Vector3 closedPos = Vector3.zero;
-                    if (roomDoors != null && _currentRoomIndex < roomDoors.Length)
-                    {
-                        doorToOpen = roomDoors[_currentRoomIndex];
-                        closedPos = _initialDoorPositions[_currentRoomIndex];
-                    }
-                    StartCoroutine(MoveAgentThroughDoor(spawnPoints[nextRoom], doorToOpen, closedPos));
-                }
-            }
-            else
-            {
-                AddReward(1.0f);
-                ResetAgentAndGoalInRoom(_currentRoomIndex);
-            }
-        }
-    }
-
-    public void OnCollisionEnter(Collision collision)
-    {
-        if (_isTransitioning) return;
-        if (collision.gameObject.CompareTag("Wall"))
-        {
-            AddReward(-0.02f);
-            ResetAgentAndGoalInRoom(_currentRoomIndex);
-        }
-    }
-
-    // ... (Keep the rest: CollectObservations, OnActionReceived, MoveAgentThroughDoor, GetRandomPosAt, Heuristic) ...
-
-    // --- PASTE REMAINING STANDARD FUNCTIONS BELOW ---
     private Vector3 GetRandomPosAt(int roomIndex)
     {
         if (roomIndex >= spawnPoints.Length) return transform.position;
@@ -206,22 +151,62 @@ public class MoveScript : Agent
         return randomPos;
     }
 
+    public void OnTriggerEnter(Collider other)
+    {
+        if (_isTransitioning) return;
+        if (other.CompareTag("goal") || other.CompareTag("Checkpoint"))
+        {
+            _currentWins++;
+            UpdateScoreBoard();
+            if (_currentWins >= requiredWins)
+            {
+                other.gameObject.SetActive(false);
+                AddReward(5.0f);
+                int nextRoom = _currentRoomIndex + 1;
+                if (nextRoom >= spawnPoints.Length)
+                {
+                    AddReward(10.0f);
+                    _currentRoomIndex = 0; EndEpisode();
+                }
+                else
+                {
+                    _currentWins = 0;
+                    Transform doorToOpen = null; Vector3 closedPos = Vector3.zero;
+                    if (roomDoors != null && _currentRoomIndex < roomDoors.Length)
+                    {
+                        doorToOpen = roomDoors[_currentRoomIndex]; closedPos = _initialDoorPositions[_currentRoomIndex];
+                    }
+                    StartCoroutine(MoveAgentThroughDoor(spawnPoints[nextRoom], doorToOpen, closedPos));
+                }
+            }
+            else
+            {
+                AddReward(1.0f); ResetAgentAndGoalInRoom(_currentRoomIndex);
+            }
+        }
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (_isTransitioning) return;
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            AddReward(-0.02f); ResetAgentAndGoalInRoom(_currentRoomIndex);
+        }
+    }
+
     public override void CollectObservations(VectorSensor sensor)
     {
-        sensor.AddObservation(_currentRoomIndex);
-        sensor.AddObservation(transform.forward);
-        sensor.AddObservation(_rb.linearVelocity.x);
-        sensor.AddObservation(_rb.linearVelocity.z);
+        sensor.AddObservation(_currentRoomIndex); sensor.AddObservation(transform.forward);
+        sensor.AddObservation(_rb.linearVelocity.x); sensor.AddObservation(_rb.linearVelocity.z);
         sensor.AddObservation(requiredWins - _currentWins);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
     {
         if (_isTransitioning) return;
-        float moveX = actions.ContinuousActions[0];
-        float moveZ = actions.ContinuousActions[1];
-        float moveSpeed = 6f;
-        Vector3 direction = new Vector3(moveX, 0, moveZ);
+        float moveX = actions.ContinuousActions[0]; float moveZ = actions.ContinuousActions[1];
+        float moveSpeed = 6f; Vector3 direction = new Vector3(moveX, 0, moveZ);
         if (direction.sqrMagnitude > 0.01f)
         {
             Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
@@ -234,14 +219,11 @@ public class MoveScript : Agent
 
     IEnumerator MoveAgentThroughDoor(Transform targetDestination, Transform door, Vector3 closedLocalPos)
     {
-        _isTransitioning = true;
-        _rb.isKinematic = true;
+        _isTransitioning = true; _rb.isKinematic = true;
         if (cameraController != null) cameraController.MoveToRoom(_currentRoomIndex + 1);
-
         if (door != null)
         {
-            Vector3 startLocal = closedLocalPos;
-            Vector3 endLocal = startLocal + Vector3.up * 4.0f;
+            Vector3 startLocal = closedLocalPos; Vector3 endLocal = startLocal + Vector3.up * 4.0f;
             float openDuration = 0.5f; float openTime = 0f;
             while (openTime < openDuration)
             {
@@ -250,7 +232,6 @@ public class MoveScript : Agent
             }
             door.localPosition = endLocal;
         }
-
         float moveDuration = 1.5f; float moveTime = 0f;
         Vector3 startPos = transform.position; Quaternion startRot = transform.rotation;
         Vector3 targetPos = new Vector3(targetDestination.position.x, startPos.y, targetDestination.position.z);
@@ -263,11 +244,9 @@ public class MoveScript : Agent
             moveTime += Time.deltaTime; yield return null;
         }
         transform.position = targetPos; transform.rotation = targetRot;
-
         if (door != null)
         {
-            float closeDuration = 0.5f; float closeTime = 0f;
-            Vector3 currentLocal = door.localPosition;
+            float closeDuration = 0.5f; float closeTime = 0f; Vector3 currentLocal = door.localPosition;
             while (closeTime < closeDuration)
             {
                 door.localPosition = Vector3.Lerp(currentLocal, closedLocalPos, closeTime / closeDuration);
@@ -275,14 +254,13 @@ public class MoveScript : Agent
             }
             door.localPosition = closedLocalPos;
         }
-
         _currentRoomIndex++;
 
-        // Manual update to reset color/text immediately on room change
+        // Update both boards immediately on room switch
         UpdateScoreBoard();
+        UpdateGlobalTimer();
 
-        _rb.isKinematic = false;
-        _isTransitioning = false;
+        _rb.isKinematic = false; _isTransitioning = false;
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)

@@ -283,6 +283,17 @@ MonoBehaviour:
   - {fileID: 612874648}
   - {fileID: 2061308580}
   transitionSpeed: 2
+--- !u!114 &331460120 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7470553745807454563, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+  m_PrefabInstance: {fileID: 8619878320057472609}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshPro
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,6 +573,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: model
       objectReference: {fileID: 0}
+    - target: {fileID: 2439441792072778672, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: m_Name
+      value: Time2
+      objectReference: {fileID: 0}
     - target: {fileID: 2585607912960627099, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_TagString
       value: Untagged
@@ -641,6 +656,10 @@ PrefabInstance:
     - target: {fileID: 3515508278617919328, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_LocalPosition.z
       value: 8.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619523747497919187, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: m_Name
+      value: Score2
       objectReference: {fileID: 0}
     - target: {fileID: 5075475787527932958, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_LocalScale.x
@@ -742,9 +761,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -6.45
       objectReference: {fileID: 0}
+    - target: {fileID: 7921210499053322509, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: m_Name
+      value: ScoreBoard2
+      objectReference: {fileID: 0}
     - target: {fileID: 7996472734494904370, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_Name
       value: w2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9082713929161031790, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: m_Name
+      value: TimeBoard2
       objectReference: {fileID: 0}
     - target: {fileID: 9105988202995243445, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_LocalPosition.x
@@ -800,15 +827,54 @@ PrefabInstance:
     - {fileID: 8502808974131260888, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9082713929161031790, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 7921210499053322509, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 3272487244400172121, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       insertIndex: -1
       addedObject: {fileID: 951667643}
   m_SourcePrefab: {fileID: 100100000, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+--- !u!114 &1521063492 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8380424594084392960, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+  m_PrefabInstance: {fileID: 1521063491}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshPro
+--- !u!114 &1521063493 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7470553745807454563, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+  m_PrefabInstance: {fileID: 1521063491}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshPro
 --- !u!1 &1797615063 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7054679373503822558, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
   m_PrefabInstance: {fileID: 8619878320057472609}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1841861345 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8380424594084392960, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+  m_PrefabInstance: {fileID: 8619878320057472609}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshPro
 --- !u!4 &1946719552 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7438476577306681275, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
@@ -944,7 +1010,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2721477734900869097, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_BrainParameters.NumStackedVectorObservations
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2765936072472020829, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_LocalScale.y
@@ -1001,6 +1067,10 @@ PrefabInstance:
     - target: {fileID: 3107248966000271268, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3272487244400172121, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: m_TagString
+      value: walls
       objectReference: {fileID: 0}
     - target: {fileID: 3515508278617919328, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1071,12 +1141,20 @@ PrefabInstance:
       value: l4
       objectReference: {fileID: 0}
     - target: {fileID: 6841454049751258070, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: m_RayLength
+      value: 66
+      objectReference: {fileID: 0}
+    - target: {fileID: 6841454049751258070, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_RaysPerDirection
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6841454049751258070, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_SphereCastRadius
-      value: 0.9
+      value: 1.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6841454049751258070, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: m_ObservationStacks
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6841454049751258070, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_DetectableTags.Array.size
@@ -1101,6 +1179,10 @@ PrefabInstance:
     - target: {fileID: 7137314587055996428, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_LocalPosition.z
       value: -6.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199055574063674296, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.8
       objectReference: {fileID: 0}
     - target: {fileID: 7738494888556415001, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1134,6 +1216,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: w2
       objectReference: {fileID: 0}
+    - target: {fileID: 8073173121702933211, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.56
+      objectReference: {fileID: 0}
     - target: {fileID: 9105988202995243445, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.15
@@ -1148,7 +1234,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9160657965902534656, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: MaxStep
-      value: 1500
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 9160657965902534656, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: cameraController
@@ -1163,6 +1249,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9160657965902534656, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: timeBoards.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9160657965902534656, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: 'allGoals.Array.data[0]'
       value: 
       objectReference: {fileID: 1797615063}
@@ -1171,6 +1261,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2108689317}
     - target: {fileID: 9160657965902534656, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: scoreBoards.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9160657965902534656, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: spawnPoints.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1178,6 +1272,22 @@ PrefabInstance:
       propertyPath: 'roomDoors.Array.data[0]'
       value: 
       objectReference: {fileID: 1946719552}
+    - target: {fileID: 9160657965902534656, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: 'timeBoards.Array.data[0]'
+      value: 
+      objectReference: {fileID: 331460120}
+    - target: {fileID: 9160657965902534656, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: 'timeBoards.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1521063493}
+    - target: {fileID: 9160657965902534656, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: 'scoreBoards.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1841861345}
+    - target: {fileID: 9160657965902534656, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      propertyPath: 'scoreBoards.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1521063492}
     - target: {fileID: 9160657965902534656, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       propertyPath: 'spawnPoints.Array.data[0]'
       value: 
@@ -1203,6 +1313,12 @@ PrefabInstance:
     - {fileID: 2755978700332624692, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9082713929161031790, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 7921210499053322509, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 3272487244400172121, guid: 529fb61ae4ad45f47b24bf29369384be, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7108455361738039324}
