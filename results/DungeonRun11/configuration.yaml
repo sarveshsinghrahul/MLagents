@@ -66,11 +66,11 @@ engine_settings:
   no_graphics_monitor: false
 environment_parameters: null
 checkpoint_settings:
-  run_id: DungeonRun_4
+  run_id: DungeonRun11
   initialize_from: null
   load_model: false
   resume: false
-  force: true
+  force: false
   train_model: false
   inference: false
   results_dir: results
