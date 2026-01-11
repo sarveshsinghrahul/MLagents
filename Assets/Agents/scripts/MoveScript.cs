@@ -262,10 +262,20 @@ public class MoveScript : Agent
     {
         if (_isTransitioning) return;
 
+        // 1. Check for Walls (Heavy Penalty)
+        // Make sure the tag in Unity is exactly "walls" (plural)
         if (collision.gameObject.CompareTag("walls"))
         {
-            AddReward(-0.02f);
-            ResetAgentAndGoalInRoom(_currentRoomIndex);
+            AddReward(-0.05f); // Big punishment
+            StartCoroutine(FlashLights(_currentRoomIndex, loseColor, 0.5f));
+        }
+
+        // 2. Check for Barricades (Light Penalty)
+        // Make sure the tag in Unity is exactly "barricades"
+        else if (collision.gameObject.CompareTag("barricades"))
+        {
+            AddReward(-0.01f); // Small punishment
+            StartCoroutine(FlashLights(_currentRoomIndex, loseColor, 0.2f)); // Faster flash
         }
     }
 
