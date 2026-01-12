@@ -1,0 +1,42 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1768226331",
+        "python_version": "3.10.12 | packaged by Anaconda, Inc. | (main, Jul  5 2023, 19:01:18) [MSC v.1916 64 bit (AMD64)]",
+        "command_line_arguments": "C:\\Users\\sarve\\anaconda3\\envs\\unity_agents\\Scripts\\mlagents-learn config/MoveScript.yaml --run-id=id2",
+        "mlagents_version": "1.1.0",
+        "mlagents_envs_version": "1.1.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "2.2.2+cu121",
+        "numpy_version": "1.23.5",
+        "end_time_seconds": "1768226404"
+    },
+    "total": 72.62547640000412,
+    "count": 1,
+    "self": 0.011001499995472841,
+    "children": {
+        "run_training.setup": {
+            "total": 0.103939900000114,
+            "count": 1,
+            "self": 0.103939900000114
+        },
+        "TrainerController.start_learning": {
+            "total": 72.51053500000853,
+            "count": 1,
+            "self": 0.0001848000247264281,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 72.51032609998947,
+                    "count": 1,
+                    "self": 72.51032609998947
+                },
+                "TrainerController._save_models": {
+                    "total": 2.409999433439225e-05,
+                    "count": 1,
+                    "self": 2.409999433439225e-05
+                }
+            }
+        }
+    }
+}
