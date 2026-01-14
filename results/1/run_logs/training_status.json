@@ -1,0 +1,920 @@
+{
+    "MoveScript": {
+        "checkpoints": [
+            {
+                "steps": 19984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-19984.onnx",
+                "reward": -14.312501322478056,
+                "creation_time": 1768388737.635043,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-19984.pt"
+                ]
+            },
+            {
+                "steps": 29984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-29984.onnx",
+                "reward": -3.050000245682895,
+                "creation_time": 1768388829.035795,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-29984.pt"
+                ]
+            },
+            {
+                "steps": 39984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-39984.onnx",
+                "reward": -3.000000542961061,
+                "creation_time": 1768388920.9076593,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-39984.pt"
+                ]
+            },
+            {
+                "steps": 49984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-49984.onnx",
+                "reward": -0.15000041294842958,
+                "creation_time": 1768389012.6244814,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-49984.pt"
+                ]
+            },
+            {
+                "steps": 59984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-59984.onnx",
+                "reward": 0.9249996859580278,
+                "creation_time": 1768389105.908815,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-59984.pt"
+                ]
+            },
+            {
+                "steps": 69984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-69984.onnx",
+                "reward": 2.4624995021149516,
+                "creation_time": 1768389206.75496,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-69984.pt"
+                ]
+            },
+            {
+                "steps": 79984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-79984.onnx",
+                "reward": 3.049999415874481,
+                "creation_time": 1768389303.0406895,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-79984.pt"
+                ]
+            },
+            {
+                "steps": 89984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-89984.onnx",
+                "reward": 4.6333327411363525,
+                "creation_time": 1768389398.4903238,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-89984.pt"
+                ]
+            },
+            {
+                "steps": 99984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-99984.onnx",
+                "reward": 5.299999286110203,
+                "creation_time": 1768389493.8245564,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-99984.pt"
+                ]
+            },
+            {
+                "steps": 109984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-109984.onnx",
+                "reward": 5.599999355773131,
+                "creation_time": 1768389590.263261,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-109984.pt"
+                ]
+            },
+            {
+                "steps": 119984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-119984.onnx",
+                "reward": 5.716665859644611,
+                "creation_time": 1768389683.572945,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-119984.pt"
+                ]
+            },
+            {
+                "steps": 129984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-129984.onnx",
+                "reward": 7.016665620729327,
+                "creation_time": 1768389778.62307,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-129984.pt"
+                ]
+            },
+            {
+                "steps": 139984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-139984.onnx",
+                "reward": 7.933332246417801,
+                "creation_time": 1768389872.3784657,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-139984.pt"
+                ]
+            },
+            {
+                "steps": 149984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-149984.onnx",
+                "reward": 8.742465623964867,
+                "creation_time": 1768389968.3679752,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-149984.pt"
+                ]
+            },
+            {
+                "steps": 159984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-159984.onnx",
+                "reward": -2.3500001604358354,
+                "creation_time": 1768390063.7355506,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-159984.pt"
+                ]
+            },
+            {
+                "steps": 169984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-169984.onnx",
+                "reward": -1.2450001379474998,
+                "creation_time": 1768390159.3350792,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-169984.pt"
+                ]
+            },
+            {
+                "steps": 179984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-179984.onnx",
+                "reward": -3.8849998684599996,
+                "creation_time": 1768390254.9210112,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-179984.pt"
+                ]
+            },
+            {
+                "steps": 189984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-189984.onnx",
+                "reward": 4.824999304488301,
+                "creation_time": 1768390349.7331214,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-189984.pt"
+                ]
+            },
+            {
+                "steps": 199984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-199984.onnx",
+                "reward": 1.8034993801265955,
+                "creation_time": 1768390446.6538646,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-199984.pt"
+                ]
+            },
+            {
+                "steps": 209984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-209984.onnx",
+                "reward": -8.444999821484089,
+                "creation_time": 1768390530.4216778,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-209984.pt"
+                ]
+            },
+            {
+                "steps": 219984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-219984.onnx",
+                "reward": -8.019999839365482,
+                "creation_time": 1768390612.4267917,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-219984.pt"
+                ]
+            },
+            {
+                "steps": 229984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-229984.onnx",
+                "reward": -7.799999853596091,
+                "creation_time": 1768390693.2919047,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-229984.pt"
+                ]
+            },
+            {
+                "steps": 239984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-239984.onnx",
+                "reward": -6.724999755620956,
+                "creation_time": 1768390773.8504725,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-239984.pt"
+                ]
+            },
+            {
+                "steps": 249984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-249984.onnx",
+                "reward": -4.769999876618385,
+                "creation_time": 1768390854.3417926,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-249984.pt"
+                ]
+            },
+            {
+                "steps": 259984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-259984.onnx",
+                "reward": -4.710000030696392,
+                "creation_time": 1768390934.6073751,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-259984.pt"
+                ]
+            },
+            {
+                "steps": 269984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-269984.onnx",
+                "reward": -3.980000013485551,
+                "creation_time": 1768391015.076413,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-269984.pt"
+                ]
+            },
+            {
+                "steps": 279984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-279984.onnx",
+                "reward": -3.0900001358240843,
+                "creation_time": 1768391111.740581,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-279984.pt"
+                ]
+            },
+            {
+                "steps": 289984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-289984.onnx",
+                "reward": -9.540001122280955,
+                "creation_time": 1768391199.2714193,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-289984.pt"
+                ]
+            },
+            {
+                "steps": 299984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-299984.onnx",
+                "reward": -3.4500001706182957,
+                "creation_time": 1768391279.1765556,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-299984.pt"
+                ]
+            },
+            {
+                "steps": 309984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-309984.onnx",
+                "reward": -4.309999853372574,
+                "creation_time": 1768391358.9063535,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-309984.pt"
+                ]
+            },
+            {
+                "steps": 319984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-319984.onnx",
+                "reward": -4.669999748468399,
+                "creation_time": 1768391438.4420202,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-319984.pt"
+                ]
+            },
+            {
+                "steps": 329984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-329984.onnx",
+                "reward": null,
+                "creation_time": 1768391517.9921322,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-329984.pt"
+                ]
+            },
+            {
+                "steps": 339984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-339984.onnx",
+                "reward": null,
+                "creation_time": 1768391597.298525,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-339984.pt"
+                ]
+            },
+            {
+                "steps": 349984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-349984.onnx",
+                "reward": null,
+                "creation_time": 1768391675.5071578,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-349984.pt"
+                ]
+            },
+            {
+                "steps": 359984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-359984.onnx",
+                "reward": null,
+                "creation_time": 1768391753.777802,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-359984.pt"
+                ]
+            },
+            {
+                "steps": 369984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-369984.onnx",
+                "reward": null,
+                "creation_time": 1768391832.8732119,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-369984.pt"
+                ]
+            },
+            {
+                "steps": 379984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-379984.onnx",
+                "reward": null,
+                "creation_time": 1768391911.0975387,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-379984.pt"
+                ]
+            },
+            {
+                "steps": 389984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-389984.onnx",
+                "reward": null,
+                "creation_time": 1768391989.514032,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-389984.pt"
+                ]
+            },
+            {
+                "steps": 399984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-399984.onnx",
+                "reward": -2.5139999773353336,
+                "creation_time": 1768392068.317578,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-399984.pt"
+                ]
+            },
+            {
+                "steps": 409984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-409984.onnx",
+                "reward": -2.690000180155039,
+                "creation_time": 1768392146.4341264,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-409984.pt"
+                ]
+            },
+            {
+                "steps": 419984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-419984.onnx",
+                "reward": -2.315000089351088,
+                "creation_time": 1768392225.3708494,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-419984.pt"
+                ]
+            },
+            {
+                "steps": 429984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-429984.onnx",
+                "reward": -1.7950001056306064,
+                "creation_time": 1768392304.5492115,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-429984.pt"
+                ]
+            },
+            {
+                "steps": 439984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-439984.onnx",
+                "reward": -2.0925000379793346,
+                "creation_time": 1768392382.2122464,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-439984.pt"
+                ]
+            },
+            {
+                "steps": 449984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-449984.onnx",
+                "reward": -1.860000129789114,
+                "creation_time": 1768392460.159591,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-449984.pt"
+                ]
+            },
+            {
+                "steps": 459984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-459984.onnx",
+                "reward": -2.3650002223439515,
+                "creation_time": 1768392539.0982711,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-459984.pt"
+                ]
+            },
+            {
+                "steps": 469984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-469984.onnx",
+                "reward": -2.1325001660734415,
+                "creation_time": 1768392621.4256518,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-469984.pt"
+                ]
+            },
+            {
+                "steps": 479984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-479984.onnx",
+                "reward": -1.5850000795908272,
+                "creation_time": 1768392699.4215086,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-479984.pt"
+                ]
+            },
+            {
+                "steps": 489984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-489984.onnx",
+                "reward": -1.7600001686563094,
+                "creation_time": 1768392777.9444509,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-489984.pt"
+                ]
+            },
+            {
+                "steps": 499984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-499984.onnx",
+                "reward": -1.5033334214240313,
+                "creation_time": 1768392857.1248949,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-499984.pt"
+                ]
+            },
+            {
+                "steps": 509984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-509984.onnx",
+                "reward": -1.650000048801303,
+                "creation_time": 1768392936.196075,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-509984.pt"
+                ]
+            },
+            {
+                "steps": 519984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-519984.onnx",
+                "reward": -1.6166667696088552,
+                "creation_time": 1768393015.2468033,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-519984.pt"
+                ]
+            },
+            {
+                "steps": 529984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-529984.onnx",
+                "reward": -1.370000076169769,
+                "creation_time": 1768393093.696204,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-529984.pt"
+                ]
+            },
+            {
+                "steps": 539984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-539984.onnx",
+                "reward": -1.450000084315737,
+                "creation_time": 1768393172.7992578,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-539984.pt"
+                ]
+            },
+            {
+                "steps": 549984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-549984.onnx",
+                "reward": -1.6833333522081375,
+                "creation_time": 1768393250.7045856,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-549984.pt"
+                ]
+            },
+            {
+                "steps": 559984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-559984.onnx",
+                "reward": -1.5233333725482225,
+                "creation_time": 1768393328.6302578,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-559984.pt"
+                ]
+            },
+            {
+                "steps": 569984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-569984.onnx",
+                "reward": -1.4200000446289778,
+                "creation_time": 1768393407.9710796,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-569984.pt"
+                ]
+            },
+            {
+                "steps": 579984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-579984.onnx",
+                "reward": -1.18500005453825,
+                "creation_time": 1768393486.0445912,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-579984.pt"
+                ]
+            },
+            {
+                "steps": 589984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-589984.onnx",
+                "reward": -1.4950000904500484,
+                "creation_time": 1768393564.9477677,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-589984.pt"
+                ]
+            },
+            {
+                "steps": 599984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-599984.onnx",
+                "reward": -1.5400000344961882,
+                "creation_time": 1768393643.715578,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-599984.pt"
+                ]
+            },
+            {
+                "steps": 609984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-609984.onnx",
+                "reward": -1.7050000559538603,
+                "creation_time": 1768393722.7776825,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-609984.pt"
+                ]
+            },
+            {
+                "steps": 619984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-619984.onnx",
+                "reward": -1.3850000854581594,
+                "creation_time": 1768393801.8803065,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-619984.pt"
+                ]
+            },
+            {
+                "steps": 629984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-629984.onnx",
+                "reward": -1.2200000546872616,
+                "creation_time": 1768393880.0273445,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-629984.pt"
+                ]
+            },
+            {
+                "steps": 639984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-639984.onnx",
+                "reward": -1.3600000906735659,
+                "creation_time": 1768393959.1075478,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-639984.pt"
+                ]
+            },
+            {
+                "steps": 649984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-649984.onnx",
+                "reward": -1.1400000434368849,
+                "creation_time": 1768394036.9666097,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-649984.pt"
+                ]
+            },
+            {
+                "steps": 659984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-659984.onnx",
+                "reward": -1.4500001464039087,
+                "creation_time": 1768394116.1961381,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-659984.pt"
+                ]
+            },
+            {
+                "steps": 669984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-669984.onnx",
+                "reward": -1.0800000447779894,
+                "creation_time": 1768394194.0376017,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-669984.pt"
+                ]
+            },
+            {
+                "steps": 679984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-679984.onnx",
+                "reward": -1.3700000457465649,
+                "creation_time": 1768394273.187777,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-679984.pt"
+                ]
+            },
+            {
+                "steps": 689984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-689984.onnx",
+                "reward": -1.4400000218302011,
+                "creation_time": 1768394352.9183056,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-689984.pt"
+                ]
+            },
+            {
+                "steps": 699984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-699984.onnx",
+                "reward": -1.2400000467896461,
+                "creation_time": 1768394431.1342075,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-699984.pt"
+                ]
+            },
+            {
+                "steps": 709984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-709984.onnx",
+                "reward": -1.3600000273436308,
+                "creation_time": 1768394510.1735868,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-709984.pt"
+                ]
+            },
+            {
+                "steps": 719984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-719984.onnx",
+                "reward": null,
+                "creation_time": 1768394598.726573,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-719984.pt"
+                ]
+            },
+            {
+                "steps": 729984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-729984.onnx",
+                "reward": null,
+                "creation_time": 1768394687.4035487,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-729984.pt"
+                ]
+            },
+            {
+                "steps": 739984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-739984.onnx",
+                "reward": null,
+                "creation_time": 1768394776.2272496,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-739984.pt"
+                ]
+            },
+            {
+                "steps": 749984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-749984.onnx",
+                "reward": null,
+                "creation_time": 1768394865.6223612,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-749984.pt"
+                ]
+            },
+            {
+                "steps": 759984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-759984.onnx",
+                "reward": null,
+                "creation_time": 1768394955.747583,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-759984.pt"
+                ]
+            },
+            {
+                "steps": 769984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-769984.onnx",
+                "reward": null,
+                "creation_time": 1768395044.160665,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-769984.pt"
+                ]
+            },
+            {
+                "steps": 779984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-779984.onnx",
+                "reward": null,
+                "creation_time": 1768395132.9870963,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-779984.pt"
+                ]
+            },
+            {
+                "steps": 789984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-789984.onnx",
+                "reward": null,
+                "creation_time": 1768395221.6011434,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-789984.pt"
+                ]
+            },
+            {
+                "steps": 799984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-799984.onnx",
+                "reward": -1.1680000592023134,
+                "creation_time": 1768395308.0441484,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-799984.pt"
+                ]
+            },
+            {
+                "steps": 809984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-809984.onnx",
+                "reward": -1.490000051446259,
+                "creation_time": 1768395397.1188743,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-809984.pt"
+                ]
+            },
+            {
+                "steps": 819984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-819984.onnx",
+                "reward": -1.18250006204471,
+                "creation_time": 1768395485.6022108,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-819984.pt"
+                ]
+            },
+            {
+                "steps": 829984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-829984.onnx",
+                "reward": -1.4175000647082925,
+                "creation_time": 1768395574.2515051,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-829984.pt"
+                ]
+            },
+            {
+                "steps": 839984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-839984.onnx",
+                "reward": -1.2775000520050526,
+                "creation_time": 1768395663.5818207,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-839984.pt"
+                ]
+            },
+            {
+                "steps": 849984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-849984.onnx",
+                "reward": -1.3325000312179327,
+                "creation_time": 1768395752.512279,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-849984.pt"
+                ]
+            },
+            {
+                "steps": 859984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-859984.onnx",
+                "reward": -1.1950000505894423,
+                "creation_time": 1768395842.1137135,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-859984.pt"
+                ]
+            },
+            {
+                "steps": 869984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-869984.onnx",
+                "reward": -1.1850000685080886,
+                "creation_time": 1768395931.265592,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-869984.pt"
+                ]
+            },
+            {
+                "steps": 879984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-879984.onnx",
+                "reward": -1.2475000624544919,
+                "creation_time": 1768396019.6869967,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-879984.pt"
+                ]
+            },
+            {
+                "steps": 889984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-889984.onnx",
+                "reward": -1.1100000621130068,
+                "creation_time": 1768396108.7682345,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-889984.pt"
+                ]
+            },
+            {
+                "steps": 899984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-899984.onnx",
+                "reward": -1.1500000612189372,
+                "creation_time": 1768396197.740339,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-899984.pt"
+                ]
+            },
+            {
+                "steps": 909984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-909984.onnx",
+                "reward": -1.1100000571459532,
+                "creation_time": 1768396286.7167902,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-909984.pt"
+                ]
+            },
+            {
+                "steps": 919984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-919984.onnx",
+                "reward": -1.2500000403573115,
+                "creation_time": 1768396375.5600948,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-919984.pt"
+                ]
+            },
+            {
+                "steps": 929984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-929984.onnx",
+                "reward": -1.1466667124380667,
+                "creation_time": 1768396464.5686884,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-929984.pt"
+                ]
+            },
+            {
+                "steps": 939984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-939984.onnx",
+                "reward": -1.1533333888898294,
+                "creation_time": 1768396553.4203393,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-939984.pt"
+                ]
+            },
+            {
+                "steps": 949984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-949984.onnx",
+                "reward": -1.216666732604305,
+                "creation_time": 1768396642.0596037,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-949984.pt"
+                ]
+            },
+            {
+                "steps": 959984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-959984.onnx",
+                "reward": -1.2333333808928728,
+                "creation_time": 1768396731.0895884,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-959984.pt"
+                ]
+            },
+            {
+                "steps": 969984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-969984.onnx",
+                "reward": -1.385000029578805,
+                "creation_time": 1768396820.6740782,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-969984.pt"
+                ]
+            },
+            {
+                "steps": 979984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-979984.onnx",
+                "reward": -1.1850000424310565,
+                "creation_time": 1768396909.763812,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-979984.pt"
+                ]
+            },
+            {
+                "steps": 989984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-989984.onnx",
+                "reward": -1.2100000455975533,
+                "creation_time": 1768396997.534775,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-989984.pt"
+                ]
+            },
+            {
+                "steps": 999984,
+                "file_path": "results\\1\\MoveScript\\MoveScript-999984.onnx",
+                "reward": -1.4900000765919685,
+                "creation_time": 1768397086.062242,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-999984.pt"
+                ]
+            },
+            {
+                "steps": 1000064,
+                "file_path": "results\\1\\MoveScript\\MoveScript-1000064.onnx",
+                "reward": -1.5300000552088022,
+                "creation_time": 1768397086.6725433,
+                "auxillary_file_paths": [
+                    "results\\1\\MoveScript\\MoveScript-1000064.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1000064,
+            "file_path": "results\\1\\MoveScript.onnx",
+            "reward": -1.5300000552088022,
+            "creation_time": 1768397086.6725433,
+            "auxillary_file_paths": [
+                "results\\1\\MoveScript\\MoveScript-1000064.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.1.0",
+        "torch_version": "2.2.2+cu121"
+    }
+}

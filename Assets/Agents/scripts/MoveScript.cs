@@ -32,7 +32,7 @@ public class MoveScript : Agent
 
     [Header("Training Settings")]
     public float spawnRadius = 3f;
-    public float turnSpeed = 15f;
+    public float turnSpeed = 15f; // Now this variable controls your rotation speed
     public int requiredWins = 10;
 
     // Internal State
@@ -42,12 +42,15 @@ public class MoveScript : Agent
     private bool _isTransitioning = false;
     private bool _timeRanOut = false;
 
-    // --- NEW: Custom Timer Variable ---
+    // Custom Timer Variable
     private float _totalRunTime = 0f;
 
     // Memory for initial positions
     private List<Vector3> _initialDoorPositions = new List<Vector3>();
     private List<Vector3> _initialGoalPositions = new List<Vector3>();
+
+    // Variable for smoothing movement input
+    private Vector3 _smoothMovementInput;
 
     public override void Initialize()
     {
@@ -118,7 +121,7 @@ public class MoveScript : Agent
     {
         if (!_isTransitioning)
         {
-            // --- NEW: Accumulate Time Manually ---
+            // Accumulate Time Manually
             _totalRunTime += Time.fixedDeltaTime;
 
             // Only detect timeout if a MaxStep is actually set
@@ -146,11 +149,8 @@ public class MoveScript : Agent
     {
         if (timeBoards != null && _currentRoomIndex < timeBoards.Length && timeBoards[_currentRoomIndex] != null)
         {
-            // Use our custom variable
             System.TimeSpan t = System.TimeSpan.FromSeconds(_totalRunTime);
 
-            // FIX: If we have more than 0 hours, show HH:MM:SS
-            // If less than an hour, keep showing MM:SS
             if (t.TotalHours >= 1)
             {
                 timeBoards[_currentRoomIndex].text = string.Format("Total Run Time: {0:D2}:{1:D2}:{2:D2}", t.Hours, t.Minutes, t.Seconds);
@@ -171,7 +171,7 @@ public class MoveScript : Agent
             if (secondsRemaining < 0) secondsRemaining = 0;
 
             scoreBoards[_currentRoomIndex].text =
-                $"To Open the Gate:\nScore {_currentWins}/{requiredWins} | Time Remaining: {secondsRemaining:F0}s";
+                $"To Open the Gate:\nScore {_currentWins}/{requiredWins} \n Time Remaining: {secondsRemaining:F0}s";
 
             if (secondsRemaining <= 10f) scoreBoards[_currentRoomIndex].color = Color.red;
             else if (_currentWins >= requiredWins) scoreBoards[_currentRoomIndex].color = Color.green;
@@ -202,7 +202,7 @@ public class MoveScript : Agent
                     // DUNGEON COMPLETE
                     AddReward(10.0f);
 
-                    // --- NEW: Reset Time only on FULL victory ---
+                    // Reset Time only on FULL victory
                     _totalRunTime = 0f;
 
                     _currentRoomIndex = 0;
@@ -263,19 +263,16 @@ public class MoveScript : Agent
         if (_isTransitioning) return;
 
         // 1. Check for Walls (Heavy Penalty)
-        // Make sure the tag in Unity is exactly "walls" (plural)
         if (collision.gameObject.CompareTag("walls"))
         {
             AddReward(-0.05f); // Big punishment
             StartCoroutine(FlashLights(_currentRoomIndex, loseColor, 0.5f));
         }
-
         // 2. Check for Barricades (Light Penalty)
-        // Make sure the tag in Unity is exactly "barricades"
         else if (collision.gameObject.CompareTag("barricades"))
         {
             AddReward(-0.01f); // Small punishment
-            StartCoroutine(FlashLights(_currentRoomIndex, loseColor, 0.2f)); // Faster flash
+            StartCoroutine(FlashLights(_currentRoomIndex, loseColor, 0.2f));
         }
     }
 
@@ -327,8 +324,7 @@ public class MoveScript : Agent
         // 4. Wins (1 value)
         sensor.AddObservation(requiredWins - _currentWins);
 
-        // --- NEW: THE COMPASS (3 values) ---
-        // This tells the agent "The goal is roughly over there"
+        // 5. Compass (3 values)
         if (allGoals != null && _currentRoomIndex < allGoals.Length && allGoals[_currentRoomIndex] != null)
         {
             Vector3 directionToGoal = (allGoals[_currentRoomIndex].transform.position - transform.position).normalized;
@@ -336,7 +332,7 @@ public class MoveScript : Agent
         }
         else
         {
-            sensor.AddObservation(Vector3.zero); // Safety check
+            sensor.AddObservation(Vector3.zero);
         }
     }
 
@@ -348,16 +344,28 @@ public class MoveScript : Agent
         float moveZ = actions.ContinuousActions[1];
         float moveSpeed = 6f;
 
-        Vector3 direction = new Vector3(moveX, 0, moveZ);
+        // --- SMOOTHING MAGIC ---
+        Vector3 rawInput = new Vector3(moveX, 0, moveZ);
 
-        if (direction.sqrMagnitude > 0.01f)
+        // "12f" is the smoothness factor for input dampening
+        _smoothMovementInput = Vector3.Lerp(_smoothMovementInput, rawInput, Time.deltaTime * 12f);
+
+        // Use the SMOOTHED vector for everything below
+        Vector3 smoothDirection = _smoothMovementInput;
+
+        // --- ROTATION (Using Smooth Direction) ---
+        if (smoothDirection.sqrMagnitude > 0.01f)
         {
-            Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
+            Quaternion targetRotation = Quaternion.LookRotation(smoothDirection, Vector3.up);
+
+            // FIX: Uses 'turnSpeed' variable instead of hardcoded 10f
             Quaternion nextRotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
             _rb.MoveRotation(nextRotation);
         }
 
-        _rb.MovePosition(transform.position + (direction * moveSpeed * Time.deltaTime));
+        // --- POSITION (Using Smooth Direction) ---
+        _rb.MovePosition(transform.position + (smoothDirection * moveSpeed * Time.deltaTime));
+
         AddReward(-1f / MaxStep);
     }
 
