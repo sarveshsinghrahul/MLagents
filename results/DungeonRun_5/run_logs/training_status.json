@@ -1,0 +1,29 @@
+{
+    "MoveScript": {
+        "checkpoints": [
+            {
+                "steps": 45448,
+                "file_path": "results\\DungeonRun_5\\MoveScript\\MoveScript-45448.onnx",
+                "reward": -1.0000000447034836,
+                "creation_time": 1768126276.355021,
+                "auxillary_file_paths": [
+                    "results\\DungeonRun_5\\MoveScript\\MoveScript-45448.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 45448,
+            "file_path": "results\\DungeonRun_5\\MoveScript.onnx",
+            "reward": -1.0000000447034836,
+            "creation_time": 1768126276.355021,
+            "auxillary_file_paths": [
+                "results\\DungeonRun_5\\MoveScript\\MoveScript-45448.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.1.0",
+        "torch_version": "2.2.2+cu121"
+    }
+}
